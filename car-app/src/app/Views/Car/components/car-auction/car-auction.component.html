@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">🎯 Live Auction</mat-toolbar>
+<div class="card-container">
+  <mat-card *ngFor="let car of auctionCars" class="card">
+    <mat-card-header>
+      <mat-card-title>{{ car.make }} {{ car.model }}</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <p><strong>Current Bid:</strong> {{ car.currentBid }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn">Place Bid</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

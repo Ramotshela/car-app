@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <span>🚗 Car Marketplace</span>
+</mat-toolbar>
+<mat-tab-group animationDuration="500ms">
+  <mat-tab label="Buy">
+    <div class="card-container">
+      <mat-card *ngFor="let car of cars" class="card">
+        <mat-card-header>
+          <mat-card-title>{{ car.make }} {{ car.model }}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+          <p><strong>Price:</strong> {{ car.price }}</p>
+          <p><strong>Status:</strong> {{ car.status }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent">View Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Rent">
+    <div class="placeholder">🚧 Rent listings coming soon!</div>
+  </mat-tab>
+  <mat-tab label="Auction">
+    <div class="placeholder">🚧 Auction listings coming soon!</div>
+  </mat-tab>
+</mat-tab-group>
