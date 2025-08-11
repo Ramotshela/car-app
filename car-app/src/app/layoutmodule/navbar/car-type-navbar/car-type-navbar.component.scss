@@ -1,0 +1,51 @@
+.navbar-nav {
+  gap: 2rem; /* space between items */
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.nav-item {
+  cursor: pointer;
+  position: relative;
+  outline: none; /* remove default outline, but keep accessible focus below */
+}
+
+.nav-item:focus-visible {
+  outline: 3px solid #000000; /* visible focus for keyboard users */
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.nav-link {
+  color: #444;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 3px solid transparent;
+  display: inline-block;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #000000;
+  border-bottom-color: #000000;
+}
+
+.nav-link.active {
+  color: #000000;
+  font-weight: 700;
+  border-bottom-color: #000000;
+}
+
+.navbar {
+  background-color: #f8f9fa; /* soft light background */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    gap: 1rem;
+    font-size: 1rem;
+  }
+}

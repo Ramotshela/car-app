@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <ul class="navbar-nav container d-flex justify-content-center" >
+      @for(type of carType; track carType) {
+        <li
+          class="nav-item"
+          (click)="selectCarType(type)"
+          (keydown)="handleKeyDown($event, type.name)"
+        >
+          <a class="nav-link" [class.active]="selected === type.name">{{ type.name }}</a>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>
+<app-car-type-category-navbar
+  [selected]="selected"
+></app-car-type-category-navbar>

@@ -9,5 +9,7 @@ import { SharedModule } from '../../Shared';
 @NgModule({
   declarations: [CarListingComponent, CarAuctionComponent],
   imports: [CommonModule, SharedModule],
+  exports:[CarListingComponent,CarAuctionComponent]
 })
+
 export class CarModule {}

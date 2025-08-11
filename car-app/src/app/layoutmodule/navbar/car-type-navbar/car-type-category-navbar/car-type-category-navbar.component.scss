@@ -1,0 +1,18 @@
+/* Make sub-navbar items spaced nicely */
+.navbar-nav {
+  gap: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link {
+  color: #555;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #000000; /* Bootstrap primary color */
+  text-decoration: underline;
+}
