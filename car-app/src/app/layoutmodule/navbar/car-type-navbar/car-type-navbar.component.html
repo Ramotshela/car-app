@@ -4,7 +4,7 @@
       @for(type of carType; track carType) {
         <li
           class="nav-item"
-          (click)="selectCarType(type)"
+          (click)="selectCarType(type.id)"
           (keydown)="handleKeyDown($event, type.name)"
         >
           <a class="nav-link" [class.active]="selected === type.name">{{ type.name }}</a>

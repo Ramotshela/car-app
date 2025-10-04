@@ -15,17 +15,17 @@ export class CarTypeNavbarComponent {
     private readonly carTypeService: CarTypeServiceService
   ) {}
   selectCarType(carType: any[]) {
-    this.selected === carType;
-    console.log('testin',this.selected);
-
+    this.selected = carType;
   }
   ngOnInit() {
     this.getAllCarType();
+
   }
   getAllCarType() {
     this.carTypeService.getAllCarTypes().subscribe({
       next: (carType) => {
         this.carType = carType;
+
       },
       error: (error) => {
         console.error('Error fetching car types:', error);

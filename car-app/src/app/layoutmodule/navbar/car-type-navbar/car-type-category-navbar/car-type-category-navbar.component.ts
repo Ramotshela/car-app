@@ -34,18 +34,18 @@ export class CarTypeCategoryNavbarComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selected'] && this.selected !== null) {
       const firstSelectedItem = this.selected; // Assuming you're interested in the first item
-      if (firstSelectedItem?.id) {
-        this.getAllCarCategoriesById(firstSelectedItem.id);
+
+
+      if (firstSelectedItem) {
+        this.getAllCarCategoriesById(firstSelectedItem);
       }
     }
   }
   getAllCarCategoriesById(catTypeId: string) {
-    console.log('Fetching category with ID:', catTypeId);
 
     this.carCategoryService.getCarCategoriesById(catTypeId).subscribe({
       next: (categories) => {
         this.carCategories = categories as any[];
-        console.log('Car categories fetched successfully:', categories);
       },
       error: (error) => {
         console.error('Error fetching car categories:', error);
