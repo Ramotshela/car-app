@@ -1,0 +1,43 @@
+
+<div class="filter-container">
+
+      <div class="filters-wrapper">
+        <ng-container *ngFor="let filter of filters">
+          <ng-container *ngTemplateOutlet="renderFilter; context: { $implicit: filter }"></ng-container>
+        </ng-container>
+      </div>
+
+      <div class="active-filter-display" *ngIf="activeFilter">
+        <p>
+          Active Filter: <span class="active-filter-name">{{ activeFilter }}</span>
+        </p>
+      </div>
+    </div>
+
+    <ng-template #renderFilter let-filter>
+      <div class="filter-item">
+        <button
+          (click)="toggleFilter(filter)"
+          [class.active]="activeFilter === filter.name"
+          class="filter-button"
+        >
+          {{ filter.name }}
+          <svg *ngIf="filter.categoryDto"
+            [class.rotated]="isExpanded(filter)"
+            class="chevron-icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <!-- Render children recursively -->
+        <div *ngIf="filter.categoryDto && isExpanded(filter)" class="child-filters">
+          <ng-container *ngFor="let child of filter.categoryDto">
+            <ng-container *ngTemplateOutlet="renderFilter; context: { $implicit: child }"></ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </ng-template>

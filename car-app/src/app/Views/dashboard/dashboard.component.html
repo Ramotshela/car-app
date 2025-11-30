@@ -1,2 +1,9 @@
 <app-top-navbar></app-top-navbar>
 <app-hero-dashboard></app-hero-dashboard>
+@if(state==="" || state ==="BROWSE_CARS"){
+<app-car-listing></app-car-listing>
+}@else if (state ==="AUCTION") {
+  <app-car-auction></app-car-auction>
+}@else if (state==="RENTALS") {
+  <app-car-rental></app-car-rental>
+}

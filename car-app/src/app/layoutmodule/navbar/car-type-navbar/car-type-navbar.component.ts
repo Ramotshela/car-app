@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { CarCategoryServiceService } from '../../../Core/Services/car_category_service';
-import { CarTypeServiceService } from '../../../Core/Services/car_type_service';
 
 @Component({
   selector: 'app-car-type-navbar',
@@ -9,29 +7,13 @@ import { CarTypeServiceService } from '../../../Core/Services/car_type_service';
   styleUrl: './car-type-navbar.component.scss',
 })
 export class CarTypeNavbarComponent {
-  selected: any[]  = [];
+  selected: any[] = [];
   carType: any[] = [];
-  constructor(
-    private readonly carTypeService: CarTypeServiceService
-  ) {}
   selectCarType(carType: any[]) {
     this.selected = carType;
   }
-  ngOnInit() {
-    this.getAllCarType();
 
-  }
-  getAllCarType() {
-    this.carTypeService.getAllCarTypes().subscribe({
-      next: (carType) => {
-        this.carType = carType;
 
-      },
-      error: (error) => {
-        console.error('Error fetching car types:', error);
-      },
-    });
-  }
 
   handleKeyDown(event: KeyboardEvent, category: any) {
     if (event.key === 'Enter' || event.key === ' ') {

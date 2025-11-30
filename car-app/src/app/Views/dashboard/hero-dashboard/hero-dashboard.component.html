@@ -1,9 +1,13 @@
-<div class="hero-banner d-flex align-items-center justify-content-center text-white">
-  <div class="text-center fade-in">
-    <h1 class="display-4 fw-bold">Welcome to CarWorld</h1>
-    <p class="lead">Buy, Rent, or Bid Your dream car is just a click away.</p>
-    <p class="small">Explore premium vehicles for sale, rent, or live auction — all in one platform.</p>
-    <button type="button" (click)="onExploreClick()" class="btn btn-dark btn-lg mt-3">Browse Inventory</button>
 
-  </div>
+<!-- car-type.component.html -->
+<div style="max-width: 400px; margin: 2rem auto; font-family: sans-serif;">
+  <h2>Add Car Type</h2>
+
+  <input [(ngModel)]="name" placeholder="Enter car type name" style="width: 100%; padding: 8px;" />
+
+  <button (click)="addCarType()" style="margin-top: 10px; padding: 8px 12px;">
+    Submit
+  </button>
+
+  <p style="margin-top: 15px;">{{ message }}</p>
 </div>

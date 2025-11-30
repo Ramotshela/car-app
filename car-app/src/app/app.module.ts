@@ -8,8 +8,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LayoutmoduleModule } from './layoutmodule/layoutmodule.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { IndexedDbCacheInterceptor } from './Core/Interceptors/indexeddb_cache_interceptor/indexeddb-cache.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,10 +27,19 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
+      
     }),
   ],
-  providers: [provideHttpClient()],
+  providers: [
+    provideHttpClient(),
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: IndexedDbCacheInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

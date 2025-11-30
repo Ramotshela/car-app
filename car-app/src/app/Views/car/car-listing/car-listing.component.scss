@@ -16,3 +16,28 @@
   object-fit: cover;
   height: 180px;
 }
+.sub-nav-card {
+  width: 95%;
+  background-image: url('../../../../assets/images/BMW-M5-exterior.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: #000000;
+  padding-left: 5%;
+  height: 200px;
+  color: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: 200;
+  border-radius: 10px;
+  margin: 2% auto;
+ // background: url("../../../../assets/images/BMW_M5_F90.jpg") no-repeat center   center;
+  background-size: cover;
+}
+input {
+  width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}

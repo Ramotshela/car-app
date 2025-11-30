@@ -6,6 +6,9 @@ export const APIConstants = {
     //UPDATE: (id: string) => `cars/${id}`,
     DELETE: (id: string) => `cars/${id}`,
   },
+  CarTypeCategoryFilter: {
+    GET_ALL: '/CarTypeCategoryFilter',
+  },
   CARTYPE: {
     GET_ALL: '/CarType',
     GET_BY_ID: (id: string) => `/CarType/${id}`,

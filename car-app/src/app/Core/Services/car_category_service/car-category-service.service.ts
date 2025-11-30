@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
 import { APIConstants } from '../../../Shared';
 const baseUrl=environment.baseUrl
@@ -8,7 +8,7 @@ const baseUrl=environment.baseUrl
 })
 export class CarCategoryServiceService {
 
-  constructor(private readonly http: HttpClient) { }
+  private readonly http = inject(HttpClient);
   getAllCarCategories() {
     return this.http.get(`${baseUrl}`+APIConstants.CATEGORY.GET_ALL);
   }

@@ -1,0 +1,55 @@
+<div class="rental-section text-center py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Premium Car Rentals</h2>
+    <p class="text-muted fs-5 mb-5">
+      Rent luxury and premium vehicles by the day, week, or month. All rentals include full insurance coverage.
+    </p>
+
+    <form
+      [formGroup]="rentalForm"
+      (ngSubmit)="onSubmit()"
+      class="rental-form p-4 mx-auto rounded-3 shadow-sm"
+    >
+      <div class="row g-3 align-items-end justify-content-center">
+        <!-- Pickup Location -->
+        <div class="col-12 col-md-3 text-start">
+          <label class="form-label fw-semibold">Pickup Location</label>
+          <select formControlName="location" class="form-select">
+            <option disabled selected>Select location</option>
+            <option value="jhb">Johannesburg</option>
+            <option value="pta">Pretoria</option>
+            <option value="dbn">Durban</option>
+            <option value="cpt">Cape Town</option>
+          </select>
+
+        </div>
+
+        <!-- Pickup Date -->
+        <div class="col-12 col-md-3 text-start">
+          <label class="form-label fw-semibold">Pickup Date</label>
+          <input type="date" formControlName="pickupDate" class="form-control" />
+
+        </div>
+
+        <!-- Return Date -->
+        <div class="col-12 col-md-3 text-start">
+          <label class="form-label fw-semibold">Return Date</label>
+          <input type="date" formControlName="returnDate" class="form-control" />
+
+        </div>
+
+        <!-- Button -->
+        <div class="col-12 col-md-2 d-grid">
+          <button
+            type="submit"
+            class="btn btn-dark fw-semibold py-2"
+            [disabled]="rentalForm.invalid"
+          >
+            Search Rentals
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-filter [filters]="filters" [(activeFilter)]="selectedFilter"></app-filter>
