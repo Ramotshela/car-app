@@ -1,4 +1,10 @@
 <div *ngIf="!isOnline" class="offline-banner">
   You are currently offline. Some features may not be available.
 </div>
+@if(networkBandwidth !== null && networkBandwidth !== '4g'){
+  <div class="slow-network-banner">
+    Your network connection is slow ({{ networkBandwidth }} Mbps). Some features may not work optimally.
+  </div>
+}
+
 <router-outlet />
